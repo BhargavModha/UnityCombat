@@ -50,6 +50,8 @@ public class ThrowController : MonoBehaviour
     public CinemachineFreeLook virtualCamera;
     public CinemachineImpulseSource impulseSource;
 
+    GameObject playerObject;
+
     void Start()
     {
         Cursor.visible = false;
@@ -61,6 +63,8 @@ public class ThrowController : MonoBehaviour
         origLocPos = weapon.localPosition;
         origLocRot = weapon.localEulerAngles;
         reticle.DOFade(0, 0);
+
+        playerObject = GameObject.Find("YBot");
 
     }
 
@@ -96,8 +100,9 @@ public class ThrowController : MonoBehaviour
         if (hasWeapon)
         {
 
-            if (aiming && Input.GetMouseButtonDown(0))
+            if (aiming && Input.GetMouseButtonDown(0) && playerObject.GetComponent<PlayerStats>().playerSpecial>10)
             {
+                playerObject.GetComponent<PlayerStats>().playerSpecial -= 15;
                 animator.SetTrigger("throw");
             }
 
