@@ -6,6 +6,12 @@ public class BreakBoxScript : MonoBehaviour
 {
 
     public GameObject breakedBox;
+    GameObject playerObject;
+
+    void Start()
+    {
+        playerObject = GameObject.Find("YBot");
+    }
 
     public void Break()
     {
@@ -16,5 +22,7 @@ public class BreakBoxScript : MonoBehaviour
             rb.AddExplosionForce(150, transform.position, 30);
         }
         Destroy(gameObject);
+        playerObject.GetComponent<PlayerStats>().IncreasePoints();
+
     }
 }

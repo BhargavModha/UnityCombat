@@ -152,14 +152,14 @@ public class ThrowController : MonoBehaviour
         DOVirtual.Float(originalAim, newAim, .5f, CameraOffset).SetDelay(delay);
 
         //Particle
-        if (state)
+/*        if (state)
         {
             glowParticle.Play();
         }
         else
         {
             glowParticle.Stop();
-        }
+        }*/
 
     }
 
@@ -177,8 +177,8 @@ public class ThrowController : MonoBehaviour
         weaponRb.AddForce(Camera.main.transform.forward * throwPower + transform.up * 2, ForceMode.Impulse);
 
         //Trail
-        trailRenderer.emitting = true;
-        trailParticle.Play();
+/*        trailRenderer.emitting = true;
+        trailParticle.Play();*/
     }
 
     public void WeaponStartPull()
@@ -204,9 +204,9 @@ public class ThrowController : MonoBehaviour
         hasWeapon = true;
 
         //Particle and trail
-        catchParticle.Play();
+/*        catchParticle.Play();
         trailRenderer.emitting = false;
-        trailParticle.Stop();
+        trailParticle.Stop();*/
 
         //Shake
         impulseSource.GenerateImpulse(Vector3.right);
