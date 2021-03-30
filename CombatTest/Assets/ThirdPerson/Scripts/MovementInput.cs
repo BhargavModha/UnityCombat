@@ -20,6 +20,8 @@ public class MovementInput : MonoBehaviour {
 	public CharacterController controller;
 	public bool isGrounded;
 
+	public bool level_1 = true;
+
     [Header("Animation Smoothing")]
     [Range(0, 1f)]
     public float HorizontalAnimSmoothTime = 0.2f;
@@ -74,8 +76,12 @@ public class MovementInput : MonoBehaviour {
 
 		desiredMoveDirection = forward * InputZ + right * InputX;
 
-        if (GetComponent<ThrowController>().aiming)
-            return;
+        if (level_1 == true)
+        {
+			if (GetComponent<ThrowController>().aiming)
+				return;
+		}
+
 
 		if (blockRotationPlayer == false) {
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (desiredMoveDirection), desiredRotationSpeed);
@@ -83,7 +89,12 @@ public class MovementInput : MonoBehaviour {
 		}
 	}
 
-    public void RotateToCamera(Transform t)
+	public void LookAt(Vector3 pos)
+    {
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(pos), desiredRotationSpeed);
+    }
+
+public void RotateToCamera(Transform t)
     {
 
         var camera = Camera.main;
@@ -106,12 +117,33 @@ public class MovementInput : MonoBehaviour {
 		//Calculate the Input Magnitude
 		Speed = new Vector2(InputX, InputZ).sqrMagnitude;
 
-		//Physically move player
-		if (Speed > allowPlayerRotation) {
-			//anim.SetFloat ("InputMagnitude", Speed, StartAnimTime, Time.deltaTime);
-			PlayerMoveAndRotation ();
-		} else if (Speed < allowPlayerRotation) {
-			//anim.SetFloat ("InputMagnitude", Speed, StopAnimTime, Time.deltaTime);
+        //Physically move player
+
+        if (level_1 == true)
+        {
+			if (Speed > allowPlayerRotation)
+			{
+				//anim.SetFloat ("InputMagnitude", Speed, StartAnimTime, Time.deltaTime);
+				PlayerMoveAndRotation();
+			}
+			else if (Speed < allowPlayerRotation)
+			{
+				//anim.SetFloat ("InputMagnitude", Speed, StopAnimTime, Time.deltaTime);
+			}
+        }
+        else
+        {
+			if (Speed > allowPlayerRotation)
+			{
+                anim.SetFloat ("Blend", Speed, StartAnimTime, Time.deltaTime);
+                PlayerMoveAndRotation();
+			}
+			else if (Speed < allowPlayerRotation)
+			{
+				anim.SetFloat ("Blend", Speed, StopAnimTime, Time.deltaTime);
+			}
 		}
+
+
 	}
 }
