@@ -16,6 +16,8 @@ public class PlayerStats : MonoBehaviour
     public Slider healthSlider;
     public Slider specialSlider;
 
+    public GameObject myManager;
+
     int gamePoints = 10;
 
     // Start is called before the first frame update
@@ -43,9 +45,10 @@ public class PlayerStats : MonoBehaviour
             playerHealth -= 1f;
             healthSlider.value = playerHealth;
         }
-        else
+        
+        if(playerHealth<=0)
         {
-            Debug.Log("END GAME");
+            myManager.GetComponent<GameManage>().LostLevel();
         }
 
     }
@@ -72,6 +75,7 @@ public class PlayerStats : MonoBehaviour
         if (gamePoints == 0)
         {
             Debug.Log("Next Level");
+
             Invoke("NextLevel", 2);
         }
 
@@ -94,6 +98,6 @@ public class PlayerStats : MonoBehaviour
 
     void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        myManager.GetComponent<GameManage>().WinLevel();
     }
 }
