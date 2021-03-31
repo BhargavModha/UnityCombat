@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -71,8 +72,14 @@ public class PlayerStats : MonoBehaviour
         if (gamePoints == 0)
         {
             Debug.Log("Next Level");
+            Invoke("NextLevel", 2);
         }
 
         //Debug.Log("increased");
+    }
+
+    void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
