@@ -84,16 +84,18 @@ public class PlayerStats : MonoBehaviour
 
     public void BoxHit()
     {
-        if (playerSpecial <= 90)
+        if (playerSpecial <= 85)
         {
-            playerSpecial += 10;
+            playerSpecial += 15;
         }
-        else if (playerSpecial>90 && playerSpecial <= 100)
+        else if (playerSpecial> 85 && playerSpecial <= 100)
         {
             playerSpecial = 100;
         }
-
         specialSlider.value = playerSpecial;
+
+        playerHealth += 10;
+        healthSlider.value = playerHealth;
     }
 
     void NextLevel()

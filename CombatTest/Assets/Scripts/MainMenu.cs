@@ -17,9 +17,14 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    public void StartDemo()
+    public void StartAxeDemo()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void StartBladeDemo()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     public void QuitDemo()
