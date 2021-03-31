@@ -20,7 +20,6 @@ public class PlayerStats : MonoBehaviour
 
     int gamePoints = 10;
 
-    // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("HealthLoss", 1f, 1f);
@@ -30,7 +29,6 @@ public class PlayerStats : MonoBehaviour
         healthSlider.value = playerHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         healthText.text = "" + playerHealth;
@@ -74,12 +72,9 @@ public class PlayerStats : MonoBehaviour
 
         if (gamePoints == 0)
         {
-            Debug.Log("Next Level");
-
             Invoke("NextLevel", 2);
         }
 
-        //Debug.Log("increased");
     }
 
     public void BoxHit()
@@ -92,9 +87,18 @@ public class PlayerStats : MonoBehaviour
         {
             playerSpecial = 100;
         }
-        specialSlider.value = playerSpecial;
+        
 
-        playerHealth += 10;
+        if (playerHealth <=95)
+        {
+            playerHealth += 5;
+        }
+        else if (playerHealth > 95 && playerHealth <= 100)
+        {
+            playerHealth = 100;
+        }
+
+        specialSlider.value = playerSpecial;
         healthSlider.value = playerHealth;
     }
 

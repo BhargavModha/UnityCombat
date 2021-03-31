@@ -15,10 +15,9 @@ public class GameManage_2 : MonoBehaviour
     void Start()
     {
         paused = true;
-
+        Cursor.visible = true;
         //myCam.GetComponent<CamTime>().StopCam();
-        Time.timeScale = 0f;
-
+        //Time.timeScale = 0f;
         pauseScreen.SetActive(true);
     }
 
@@ -43,16 +42,17 @@ public class GameManage_2 : MonoBehaviour
     {
         paused = true;
         //myCam.GetComponent<CamTime>().StopCam();
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        Cursor.visible = true;
         pauseScreen.SetActive(true);
     }
 
     public void ContinueGame()
     {
         paused = false;
-
+        Cursor.visible = false;
         //myCam.GetComponent<CamTime>().StartCam();
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         pauseScreen.SetActive(false);
     }
 

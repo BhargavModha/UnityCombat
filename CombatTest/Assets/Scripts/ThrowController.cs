@@ -36,12 +36,6 @@ public class ThrowController : MonoBehaviour
     public bool hasWeapon = true;
     public bool pulling = false;
     [Space]
-    [Header("Particles and Trails")]
-    public ParticleSystem glowParticle;
-    public ParticleSystem catchParticle;
-    public ParticleSystem trailParticle;
-    public TrailRenderer trailRenderer;
-    [Space]
     [Header("UI")]
     public Image reticle;
 
@@ -156,15 +150,6 @@ public class ThrowController : MonoBehaviour
         float originalAim = !state ? cameraZoomOffset : 0;
         DOVirtual.Float(originalAim, newAim, .5f, CameraOffset).SetDelay(delay);
 
-        //Particle
-/*        if (state)
-        {
-            glowParticle.Play();
-        }
-        else
-        {
-            glowParticle.Stop();
-        }*/
 
     }
 
@@ -181,9 +166,6 @@ public class ThrowController : MonoBehaviour
         weapon.transform.position += transform.right/5;
         weaponRb.AddForce(Camera.main.transform.forward * throwPower + transform.up * 2, ForceMode.Impulse);
 
-        //Trail
-/*        trailRenderer.emitting = true;
-        trailParticle.Play();*/
     }
 
     public void WeaponStartPull()
@@ -207,11 +189,6 @@ public class ThrowController : MonoBehaviour
         weapon.localEulerAngles = origLocRot;
         weapon.localPosition = origLocPos;
         hasWeapon = true;
-
-        //Particle and trail
-/*        catchParticle.Play();
-        trailRenderer.emitting = false;
-        trailParticle.Stop();*/
 
         //Shake
         impulseSource.GenerateImpulse(Vector3.right);

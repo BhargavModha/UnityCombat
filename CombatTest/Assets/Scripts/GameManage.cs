@@ -13,19 +13,18 @@ public class GameManage : MonoBehaviour
 
     bool paused;
 
-    // Start is called before the first frame update
     void Start()
     {
         paused = true;
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; 
+        Cursor.visible = true;
+
         pauseScreen.SetActive(true);
         gameUIScreen.SetActive(false);
         lostScreen.SetActive(false);
         winScreen.SetActive(false);
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -38,15 +37,15 @@ public class GameManage : MonoBehaviour
             {
                 ContinueGame();
             }
-            
         }
-
     }
 
     public void PauseGame()
     {
         paused = true;
         Time.timeScale = 0f;
+        Cursor.visible = true;
+
         pauseScreen.SetActive(true);
         gameUIScreen.SetActive(false);
     }
@@ -55,6 +54,8 @@ public class GameManage : MonoBehaviour
     {
         paused = false;
         Time.timeScale = 1f;
+        Cursor.visible = false;
+
         pauseScreen.SetActive(false);
         gameUIScreen.SetActive(true);
     }
@@ -68,6 +69,7 @@ public class GameManage : MonoBehaviour
     {
         paused = true;
         Time.timeScale = 0f;
+        Cursor.visible = true;
 
         pauseScreen.SetActive(false);
         gameUIScreen.SetActive(false);
@@ -78,6 +80,7 @@ public class GameManage : MonoBehaviour
     {
         paused = true;
         Time.timeScale = 0f;
+        Cursor.visible = true;
 
         pauseScreen.SetActive(false);
         gameUIScreen.SetActive(false);
