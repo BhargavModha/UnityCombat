@@ -150,7 +150,6 @@ public class ThrowController : MonoBehaviour
         float originalAim = !state ? cameraZoomOffset : 0;
         DOVirtual.Float(originalAim, newAim, .5f, CameraOffset).SetDelay(delay);
 
-
     }
 
     public void WeaponThrow()
