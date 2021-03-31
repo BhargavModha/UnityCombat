@@ -22,7 +22,9 @@ public class BreakBoxScript : MonoBehaviour
             rb.AddExplosionForce(150, transform.position, 30);
         }
         Destroy(gameObject);
+
         playerObject.GetComponent<PlayerStats>().IncreasePoints();
+        playerObject.GetComponent<PlayerStats>().BoxHit();
 
     }
 }

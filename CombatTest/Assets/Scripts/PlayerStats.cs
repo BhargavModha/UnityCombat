@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
     public Slider healthSlider;
     public Slider specialSlider;
 
-    int gamePoints = 5;
+    int gamePoints = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -62,11 +62,11 @@ public class PlayerStats : MonoBehaviour
     {
 
         gamePoints -= 1;
-        scoreText.text = gamePoints + " Boxes Left";
+        scoreText.text = gamePoints + " ";
 
         if (gamePoints == 1)
         {
-            scoreText.text = gamePoints + " Box Left";
+            scoreText.text = gamePoints + " ";
         }
 
         if (gamePoints == 0)
@@ -76,6 +76,20 @@ public class PlayerStats : MonoBehaviour
         }
 
         //Debug.Log("increased");
+    }
+
+    public void BoxHit()
+    {
+        if (playerSpecial <= 90)
+        {
+            playerSpecial += 10;
+        }
+        else if (playerSpecial>90 && playerSpecial <= 100)
+        {
+            playerSpecial = 100;
+        }
+
+        specialSlider.value = playerSpecial;
     }
 
     void NextLevel()

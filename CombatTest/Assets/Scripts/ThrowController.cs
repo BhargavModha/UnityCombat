@@ -100,9 +100,9 @@ public class ThrowController : MonoBehaviour
         if (hasWeapon)
         {
 
-            if (aiming && Input.GetMouseButtonDown(0) && playerObject.GetComponent<PlayerStats>().playerSpecial>10)
+            if (aiming && Input.GetMouseButtonDown(0) && playerObject.GetComponent<PlayerStats>().playerSpecial>=25)
             {
-                playerObject.GetComponent<PlayerStats>().playerSpecial -= 15;
+                playerObject.GetComponent<PlayerStats>().playerSpecial -= 25;
                 animator.SetTrigger("throw");
             }
 
