@@ -34,6 +34,16 @@ public class GameManage_2 : MonoBehaviour
             }
 
         }
+
+        if (Input.GetKeyDown("m"))
+        {
+            if (paused == true)
+            {
+                Menu();
+            }
+ 
+        }
+
     }
 
     public void PauseGame()
