@@ -14,9 +14,11 @@ public class GameManage_2 : MonoBehaviour
     void Start()
     {
         paused = true;
+
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         //myCam.GetComponent<CamTime>().StopCam();
-        //Time.timeScale = 0f;
+        Time.timeScale = 0f;
         pauseScreen.SetActive(true);
     }
 
@@ -34,38 +36,36 @@ public class GameManage_2 : MonoBehaviour
             }
 
         }
-
-        if (Input.GetKeyDown("m"))
-        {
-            if (paused == true)
-            {
-                Menu();
-            }
- 
-        }
-
     }
 
     public void PauseGame()
     {
         paused = true;
-        //myCam.GetComponent<CamTime>().StopCam();
-        //Time.timeScale = 0f;
+
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        
+        //myCam.GetComponent<CamTime>().StopCam();
+        Time.timeScale = 0f;
+        //Cursor.visible = true;
         pauseScreen.SetActive(true);
     }
 
     public void ContinueGame()
     {
         paused = false;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         //myCam.GetComponent<CamTime>().StartCam();
-        //Time.timeScale = 1f;
+        Time.timeScale = 1f;
         pauseScreen.SetActive(false);
     }
 
     public void Menu()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }

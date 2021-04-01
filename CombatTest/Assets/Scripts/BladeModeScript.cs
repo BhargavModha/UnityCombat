@@ -41,7 +41,7 @@ public class BladeModeScript : MonoBehaviour
             composers[i] = TPCamera.GetRig(i).GetCinemachineComponent<CinemachineComposer>();
         normalOffset = composers[0].m_TrackedObjectOffset;
 
-        particles = cutPlane.GetComponentsInChildren<ParticleSystem>();
+        //particles = cutPlane.GetComponentsInChildren<ParticleSystem>();
     }
 
     void Update()
@@ -195,10 +195,10 @@ public class BladeModeScript : MonoBehaviour
     public void ShakeCamera()
     {
         TPCamera.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
-        foreach (ParticleSystem p in particles)
+/*        foreach (ParticleSystem p in particles)
         {
             p.Play();
-        }
+        }*/
     }
 
     void Chromatic(float x)
