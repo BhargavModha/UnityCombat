@@ -1,4 +1,4 @@
-<img alt="EFM-Logo" src="app-icon.png" width="128" height="128" title="Game logo">
+<img alt="EFM-Logo" src="app-icon.png" title="Game logo">
 
 # Escape From Maou
 
