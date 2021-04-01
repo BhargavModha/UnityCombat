@@ -14,8 +14,6 @@ Bhargav Modha (<a href="mailto:bsm2@hw.ac.uk">bsm2</a> H00284624)
 ### Video Demo
 Link to the demo can be found <a href="https://www.youtube.com/watch?v=xPytxOy_NYg" target="_blank">here</a>
 
-### Screenshots
-
-### Useful Resources
-<a href="https://github.com/DavidArayan/ezy-slice">Ezy-Slice</a> for the slice actions
+### Resources
+<a href="https://github.com/DavidArayan/ezy-slice">Ezy-Slice</a> for the slice actions <br>
 <a href="https://docs.unity3d.com/2019.4/Documentation/Manual/index.html">Unity Docs</a>
