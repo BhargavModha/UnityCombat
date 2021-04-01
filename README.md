@@ -4,7 +4,10 @@
 
 This project is part of Coursework B (F20GP - Computer Games Programming). A hack-and-slash game invovling fast paced action, movement and Samurai like combat features. Held captive by a demon ruler named called Maou, you are a young samurai who has to survive and escape the different floors of his demon tower, killing different evil Mazoku.
 
-### Collaborators
+## About
+This repository contains the code for the main mechanics used in the game; Combat and movement. The project is built in Unity 2019.4.20
+
+## Authors
 Amogh Srivastava (<a href="mailto:as348@hw.ac.uk">as348</a> H00310385)<br>
 Bhargav Modha (<a href="mailto:bsm2@hw.ac.uk">bsm2</a> H00284624)
 
@@ -12,3 +15,7 @@ Bhargav Modha (<a href="mailto:bsm2@hw.ac.uk">bsm2</a> H00284624)
 Link to the demo can be found <a href="https://www.youtube.com/watch?v=xPytxOy_NYg" target="_blank">here</a>
 
 ### Screenshots
+
+### Useful Resources
+<a href="https://github.com/DavidArayan/ezy-slice">Ezy-Slice</a> for the slice actions
+<a href="https://docs.unity3d.com/2019.4/Documentation/Manual/index.html">Unity Docs</a>
